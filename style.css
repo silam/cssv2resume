@@ -1,3 +1,102 @@
+  /*Create variables for docuemnts*/
+  :root {
+    --black: #000501;
+    --white: #ffffff;
+    --tan: #b6b57b;
+    --green: #31b28a;
+    --lightgreen: #8cdfc5;
+    --red: #ff4404;
+
+    --main      :  "Lato", sans-serif;
+    --heading: "Josefin Sans", sans-serif;
+    --mono: "Fira Mono", monospace;
+    --base-size: 1rem; /*16 px*/
+    --scale:1.2;
+
+    --h1:calc(var(--h2) * var(--scale));
+
+    --h2:calc(var(--h3) * var(--scale));
+
+
+    --h3:calc(var(--h4) * var(--scale));
+
+    --h4:calc(var(--h5) * var(--scale));
+
+    --h5:calc(var(--h6) * var(--scale));
+    --h6:var(--base-size);
+
+  }
+  
+  body  {
+    font-family: var(--main);
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: var(--h1);
+  }
+  h2 {
+    font-size: var(--h2);
+  }
+  h3 {
+    font-size: var(--h3);
+  }
+  h4 {
+    font-size: var(--h4);
+  }
+  h5 {
+    font-size: var(--h5);
+  }
+  h6 {
+    font-size: var(--h6);
+  }
+
+  .mono {
+    font-family: var(--mono);
+  }
+  .colors {
+    display: flex;
+    gap: 5px;
+    
+  }
+  
+  .colors > * {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+  }
+
+.white {
+    background-color: var(--white);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.tan {
+    background-color: var(--tan);
+}
+
+.black {
+    background-color: var(--black);
+}
+.lightgreen {
+    background-color: var(--lightgreen);
+}
+.green {
+    background-color: var(--green);
+}
+
+
+
+
   /* border box model: https://css-tricks.com/box-sizing/ */
   html {
     box-sizing: border-box;
