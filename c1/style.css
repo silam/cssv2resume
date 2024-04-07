@@ -12,16 +12,10 @@
     --mono: "Fira Mono", monospace;
     --base-size: 1rem; /*16 px*/
     --scale:1.2;
-
     --h1:calc(var(--h2) * var(--scale));
-
     --h2:calc(var(--h3) * var(--scale));
-
-
     --h3:calc(var(--h4) * var(--scale));
-
     --h4:calc(var(--h5) * var(--scale));
-
     --h5:calc(var(--h6) * var(--scale));
     --h6:var(--base-size);
 
@@ -29,7 +23,11 @@
   
   body  {
     font-family: var(--main);
+    margin: 0;
+    padding: 0;
 
+    font-size: var(--base-size);
+    line-height: 1.5; /*1.5 the size of the font*/
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -56,14 +54,29 @@
     font-size: var(--h6);
   }
 
+    a {
+        color: var(--green);
+    }
+
+  a :hover{
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  figure {
+    padding: 0;
+    margin: 0;
+  }
   .mono {
     font-family: var(--mono);
   }
   .colors {
     display: flex;
     gap: 5px;
-    
-  }
+}
   
   .colors > * {
     width: 50px;
