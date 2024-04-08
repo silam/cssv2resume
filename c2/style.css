@@ -1,124 +1,186 @@
-:root {
-  /* colors */
-  --black: #000501;
-  --tan: #b6b57b;
-  --green: #31b28a;
-  --lightgreen: #8cdfc5;
-  --red: #ff4404;
-  --white: #ffffff;
+@layer base {
+  :root {
+    /* colors */
+    --black: #000501;
+    --tan: #b6b57b;
+    --green: #31b28a;
+    --lightgreen: #8cdfc5;
+    --red: #ff4404;
+    --white: #ffffff;
 
-  /* font families */
-  --main: "Lato", sans-serif;
-  --heading: "Josefin Sans", sans-serif;
-  --mono: "Fira mono", monospace;
+    /* font families */
+    --main: "Lato", sans-serif;
+    --heading: "Josefin Sans", sans-serif;
+    --mono: "Fira mono", monospace;
 
-  /* type scale */
-  --base-size: 1.2rem;
-  --scale: 1.25;
-  --h1: calc(var(--h2) * var(--scale));
-  --h2: calc(var(--h3) * var(--scale));
-  --h3: calc(var(--h4) * var(--scale));
-  --h4: calc(var(--h5) * var(--scale));
-  --h5: calc(var(--h6) * var(--scale));
-  --h6: var(--base-size);
+    /* type scale */
+    --base-size: 1.2rem;
+    --scale: 1.25;
+    --h1: calc(var(--h2) * var(--scale));
+    --h2: calc(var(--h3) * var(--scale));
+    --h3: calc(var(--h4) * var(--scale));
+    --h4: calc(var(--h5) * var(--scale));
+    --h5: calc(var(--h6) * var(--scale));
+    --h6: var(--base-size);
+
+    --small    : calc(var(--base-size) / var(--scale));
+  }
+
+  /* border box model: https://css-tricks.com/box-sizing/ */
+  html {
+    box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  /* h/t Scott O'Hara https://css-tricks.com/inclusively-hidden/ */
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  body {
+    font-family: var(--main);
+    line-height: 1.5;
+    font-size: var(--base-size);
+    margin: 0;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--heading);
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: var(--h1);
+  }
+  h2 {
+    font-size: var(--h2);
+  }
+  h3 {
+    font-size: var(--h3);
+  }
+  h4 {
+    font-size: var(--h4);
+  }
+  h5 {
+    font-size: var(--h5);
+  }
+  h6 {
+    font-size: var(--h6);
+  }
+  .mono {
+    font-family: var(--mono);
+  }
+
+  .colors {
+    display: flex;
+    /* you could do this with grid as well, but you may need a few more lines of code */
+  }
+  .colors > * {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border: 1px solid black;
+  }
+  .white {
+    background-color: var(--white);
+  }
+  .black {
+    background-color: var(--black);
+  }
+  .tan {
+    background-color: var(--tan);
+  }
+  .green {
+    background-color: var(--green);
+  }
+  .lightgreen {
+    background-color: var(--lightgreen);
+  }
+  .red {
+    background-color: var(--red);
+  }
+  a {
+    color: var(--green);
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+  }
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    /* border: 2px solid red; */
+    margin: 0 auto; /* 0 top and bottom  - auto : extra space / 2 for left and right*/
+    padding: 0 1rem; /* 0 top and bottom - 1rem left and righ*/
+  }
 }
 
-/* border box model: https://css-tricks.com/box-sizing/ */
-html {
-  box-sizing: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+@layer intro {
+  .intro {
+    background-image: url("https://hems-assets.princetonreview.com/images/profilepics/1022649/01.jpg");
+    background-repeat: no-repeat;
+    /* background-position: 50% 50%; */
+    background-size: 100% 100%;
+    color: var(--white  );
+    padding: 4rem 0;
+
+  }
+
+  .intro a {
+    color: var(--white);
+  }
+
+  .name {
+    font-weight: 700;
+  }
 }
 
-/* h/t Scott O'Hara https://css-tricks.com/inclusively-hidden/ */
-.sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+@layer contact {
+  .section-contact {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 6rem 0;
+    background: var(--black) url("https://wallup.net/wp-content/uploads/2018/09/26/670127-space-outer-universe-stars-photography-detail-astronomy-nasa-hubble.jpg") center center;
+    color: var(--white);
+  }
 
-body {
-  font-family: var(--main);
-  line-height: 1.5;
-  font-size: var(--base-size);
-  margin: 0;
-  padding: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--heading);
-}
-h1 {
-  font-size: var(--h1);
-}
-h2 {
-  font-size: var(--h2);
-}
-h3 {
-  font-size: var(--h3);
-}
-h4 {
-  font-size: var(--h4);
-}
-h5 {
-  font-size: var(--h5);
-}
-h6 {
-  font-size: var(--h6);
-}
-.mono {
-  font-family: var(--mono);
-}
+  .section-contact p:last-child {
+    margin-top: 5rem;
+  }
 
-.colors {
-  display: flex;
-  /* you could do this with grid as well, but you may need a few more lines of code */
-}
-.colors > * {
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
-  border: 1px solid black;
-}
-.white {
-  background-color: var(--white);
-}
-.black {
-  background-color: var(--black);
-}
-.tan {
-  background-color: var(--tan);
-}
-.green {
-  background-color: var(--green);
-}
-.lightgreen {
-  background-color: var(--lightgreen);
-}
-.red {
-  background-color: var(--red);
-}
-a {
-  color: var(--green);
-}
-a:hover {
-  text-decoration: none;
-}
-img {
-  max-width: 100%;
-}
-figure {
-  margin: 0;
-  padding: 0;
+  .button {
+    background-color: var(--green );
+    color: var(--black );
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: var(--heading);
+    font-size: var(--small);
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .button:hover {
+    background-color: var(--tan);
+  }
 }
